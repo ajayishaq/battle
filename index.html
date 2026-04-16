@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bayy.com — Competitor Analysis Tool</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">bayy <span class="logo-dot">·</span> analyzer</div>
+      <p class="header-sub">Property listing competitive intelligence</p>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- CONFIG PANEL -->
+    <section class="panel" id="config-panel">
+
+      <div class="field-group">
+        <label class="field-label">Your website</label>
+        <input type="text" id="my-url" class="input" value="https://bayy.com" placeholder="https://yoursite.com" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Competitor URLs <span class="muted">(one per line)</span></label>
+        <textarea id="comp-urls" class="input textarea" rows="4" placeholder="https://bayut.com&#10;https://propertyfinder.ae&#10;https://dubizzle.com&#10;https://aqarmap.com.eg"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Focus areas</label>
+        <div class="tag-grid" id="focus-tags">
+          <button class="tag active" data-v="UX & Design">UX & Design</button>
+          <button class="tag active" data-v="Search & Filters">Search & Filters</button>
+          <button class="tag active" data-v="Listing Quality">Listing Quality</button>
+          <button class="tag active" data-v="Mobile Experience">Mobile Experience</button>
+          <button class="tag" data-v="SEO">SEO</button>
+          <button class="tag" data-v="Lead Generation">Lead Generation</button>
+          <button class="tag" data-v="AI Features">AI Features</button>
+          <button class="tag" data-v="Agent Tools">Agent Tools</button>
+          <button class="tag" data-v="Trust & Reviews">Trust & Reviews</button>
+          <button class="tag" data-v="Mortgage Tools">Mortgage Tools</button>
+          <button class="tag" data-v="Map Search">Map Search</button>
+          <button class="tag" data-v="Notifications & Alerts">Alerts</button>
+        </div>
+      </div>
+
+      <button class="analyze-btn" id="analyze-btn">
+        <span id="btn-label">Run Analysis</span>
+        <span class="btn-arrow">→</span>
+      </button>
+
+    </section>
+
+    <!-- LOADER -->
+    <section class="loader-wrap" id="loader" style="display:none;">
+      <div class="loader-inner">
+        <div class="spinner"></div>
+        <p class="loader-msg" id="loader-msg">Scanning websites…</p>
+        <p class="loader-sub">This takes 15–30 seconds</p>
+      </div>
+    </section>
+
+    <!-- ERROR -->
+    <section class="error-wrap" id="error-wrap" style="display:none;">
+      <p class="error-msg" id="error-msg">Something went wrong. Please try again.</p>
+      <button class="retry-btn" onclick="resetUI()">Try again</button>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" style="display:none;">
+
+      <div class="results-header">
+        <h2 class="results-title" id="results-title">Analysis complete</h2>
+        <button class="reset-btn" onclick="resetUI()">← New analysis</button>
+      </div>
+
+      <!-- Summary -->
+      <div class="card" id="card-summary"></div>
+
+      <!-- Scores -->
+      <div class="card" id="card-scores"></div>
+
+      <!-- Dimensions -->
+      <div class="card" id="card-dims"></div>
+
+      <!-- Gaps -->
+      <div class="card" id="card-gaps"></div>
+
+      <!-- Quick wins -->
+      <div class="card" id="card-wins"></div>
+
+      <!-- Competitor strengths -->
+      <div class="card" id="card-strengths"></div>
+
+      <!-- Roadmap CTA -->
+      <div class="cta-block">
+        <p class="cta-text">Want a detailed 6-month product roadmap?</p>
+        <button class="cta-btn" id="roadmap-btn">Generate roadmap →</button>
+      </div>
+
+      <!-- Roadmap result -->
+      <div class="card" id="card-roadmap" style="display:none;"></div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Powered by Claude AI · Analysis is AI-generated and for strategic reference only</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
